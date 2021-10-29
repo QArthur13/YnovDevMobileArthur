@@ -29,22 +29,50 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
+        <!-- <meta name="color-scheme" content="light dark"> -->
         <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="manifest" href="manifest.json">
+        <script>
+            window.addEventListener("load", () => {
+                if ("cordova" in window) {
+                    
+                } else {
+
+                    if ("serviceWorker" in navigator) {
+                        
+                        navigator.serviceWorker.register("sw.js");
+
+                    }
+
+                }
+            });
+        </script>
+        <title>Lest Top de Arthur</title>
     </head>
     <body>
-        <div class="app">
+        <!-- <div class="app">
             <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+        </div> -->
+        <div class="header">
+            <h1>TOP</h1>
         </div>
+
+        <div id="deviceready">
+            <ul class="theTop">
+                <li><a href="#">Top1</a></li>
+                <li><a href="#">Top2</a></li>
+                <li><a href="#">Top3</a></li>
+            </ul>
+        </div>
+
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
     </body>
