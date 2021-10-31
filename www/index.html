@@ -36,21 +36,53 @@
         <!-- <meta name="color-scheme" content="light dark"> -->
         <link rel="stylesheet" href="css/index.css">
         <link rel="manifest" href="manifest.json">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script>
             window.addEventListener("load", () => {
-                if ("cordova" in window) {
+                // if ("cordova" in window) {
                     
-                } else {
+                // } else {
 
-                    if ("serviceWorker" in navigator) {
-                        
-                        navigator.serviceWorker.register("sw.js");
+                    
+                // }
+                if ("serviceWorker" in navigator) {
+                    
+                    navigator.serviceWorker.register("sw.js");
+    
+                }
 
+                // window.OneSignal = window.OneSignal || [];
+                // OneSignal.push(function() {
+                //     OneSignal.init({
+                //     appId: "c234ad5b-6869-4e1d-8cdd-0f31af29d75e",
+                //     });
+                // });
+
+                var OneSignal = window.OneSignal || [];
+                var initConfig = {
+
+                    appId: "c234ad5b-6869-4e1d-8cdd-0f31af29d75e",
+                    notifyButton: {
+                        enable: true
                     }
 
-                }
+                };
+                
+                OneSignal.push( () => {
+
+                    OneSignal.SERVICE_WORKER_PARAM = { scope: '/push/onesignal/'};
+                    OneSignal.SERVICE_WORKER_PATH = 'push/onesignal/OneSignalSDKWorker.js'
+                    OneSignal.SERVICE_WORKER_UPDATER_PATH = 'push/onesignal/OneSignalSDKUpdaterWorker.js'
+                    OneSignal.init(initConfig);
+
+                });
+
             });
         </script>
+
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
         <title>Lest Top de Arthur</title>
     </head>
     <body>
@@ -65,6 +97,8 @@
             <h1>TOP</h1>
         </div>
 
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+
         <div id="deviceready">
             <ul class="theTop">
             </ul>
@@ -72,5 +106,7 @@
 
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
+        <script src="js/jquery-3.6.0.js"></script>
+        <script src="js/creation.js"></script>
     </body>
 </html>
