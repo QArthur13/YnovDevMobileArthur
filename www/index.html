@@ -98,12 +98,39 @@
             <h1>TOP</h1>
         </div>
 
-        <a class="btn btn-primary" href="/article/creation.html" role="button">Link</a>
+        <form id="theTop" action="#">
+            <label for="title">Titre:</label>
+            <input type="text" id="title" name="title" placeholder="Nom du Titre :)">
+            <br>
+            <label for="imageName1">Nom de l'image1</label>
+            <input type="text" id="imageName1" name="imageName1" placeholder="Nom">
+            <br>
+            <label for="imageURL1">URL de l'image1</label>
+            <input type="text" id="imageURL1" name="imageURL1" placeholder="nom de l'url de l'image">
+            <br>
+            <!-- <label for="imageName2">Nom de l'image2</label>
+            <input type="text" id="imageName2" name="imageName2" placeholder="Nom">
+            <br>
+            <label for="imageURL2">URL de l'image2</label>
+            <input type="text" id="imageURL2" name="imageURL2" placeholder="nom de l'url de l'image">
+            <br>
+            <label for="imageName3">Nom de l'image3</label>
+            <input type="text" id="imageName3" name="imageName3" placeholder="Nom">
+            <br>
+            <label for="imageURL3">URL de l'image3</label>
+            <input type="text" id="imageURL3" name="imageURL3" placeholder="nom de l'url de l'image">
+            <br> -->
+            <button onclick="store()" class="btn btn-primary">envoie</button>
+            <br>
+        </form>
 
         <div>
-            <ul class="theTop">
-            </ul>
+            <ul id="title"></ul>
+            <ul id="imageName"></ul>
+            <ul id="imageURL"></ul>
         </div>
+
+        <p id="text"></p>
 
         <div class="modal" id="myModal" tabindex="-1">
             <div class="modal-dialog">
@@ -126,5 +153,6 @@
         <script src="js/index.js"></script>
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/creation.js"></script>
+
     </body>
 </html>
