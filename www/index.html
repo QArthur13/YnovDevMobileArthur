@@ -62,7 +62,8 @@
                 var OneSignal = window.OneSignal || [];
                 var initConfig = {
 
-                    appId: "c234ad5b-6869-4e1d-8cdd-0f31af29d75e",
+                    //appId: "c234ad5b-6869-4e1d-8cdd-0f31af29d75e",
+                    appId: "033a9162-e8d7-4776-ae98-caf05c06fac9",
                     notifyButton: {
                         enable: true
                     }
@@ -97,17 +98,33 @@
             <h1>TOP</h1>
         </div>
 
-        <a class="btn btn-primary" href="#" role="button">Link</a>
+        <a class="btn btn-primary" href="/article/creation.html" role="button">Link</a>
 
         <div>
             <ul class="theTop">
             </ul>
         </div>
 
+        <div class="modal" id="myModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Information</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                </div>
+                <div class="modal-body">
+                  <p>Il n'y a plus de connexion :(</p>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/creation.js"></script>
-        <script src="js/native.js"></script>
     </body>
 </html>

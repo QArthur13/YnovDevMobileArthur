@@ -25,5 +25,62 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    checkConnection();
+    document.addEventListener("offline", onOffline, false);
+    window.addEventListener("batterystatus", onBatteryStatus, false);
+    document.addEventListener("resume", onResume, false);
+    screen.orientation.lock('landscape')
+    console.log(`Orientation: ${screen.orientation.type}`)
+    StatusBar.backgroundColorByName("blue");
+
     //document.getElementById('deviceready').classList.add('ready');
+}
+
+function onResume() {
+    
+    checkConnection();
+    document.addEventListener("offline", onOffline, false);
+
+}
+
+function onBatteryStatus(status) {
+    
+    console.log(`Batterie: ${status.level}\nEst brancher? ${status.isPlugged}`);
+    //console.log(`isPlugged: ${status.isPlugged}`);
+
+}
+
+function checkConnection() {
+    
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Conenction inconnue';
+    states[Connection.ETHERNET] = 'Connection Ethernet';
+    states[Connection.WIFI]     = 'Connection WiFi';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'Pas de co!';
+
+    console.log('Types de Connexion: ' + states[networkState]);
+
+}
+
+document.addEventListener("offline", onOffline, false);
+
+let myModal = new bootstrap.Modal(document.getElementById("myModal"), {
+
+    backdrop: 'static',
+    keyboard: false
+
+});
+
+function onOffline() {
+    
+    //alert("Vous êtes hors-ligne!!!");
+
+    myModal.show();
+
 }

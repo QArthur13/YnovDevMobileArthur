@@ -1,9 +1,21 @@
-$(document).ready( () => {
+function store() {
+    
+    /* let inputTitle = $("#title").val();
+    localStorage.setItem("title", inputTitle); */
 
-    $("#btnAdd").on("click", () => {
+    let data = {
 
-        alert("Test boutton!");
+        'title': $("#title").val(),
+        'imageName': $("#imageName").val(),
+        'imageURL': $("#imageURL").val()
 
-    });
+    };
 
-});
+    let jsonData = JSON.stringify(data);
+    console.log(jsonData);
+
+    localStorage.setItem('list', jsonData);
+
+    window.location("../index.html");
+
+}
